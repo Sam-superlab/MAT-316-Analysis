@@ -1,0 +1,95 @@
+\documentclass[10pt]{article}
+
+% ---------- Page Layout ----------
+\usepackage[margin=0.7in]{geometry}
+\usepackage{multicol}
+\setlength{\columnsep}{0.4in}
+
+% ---------- Math Packages ----------
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathrsfs}
+
+% ---------- Formatting ----------
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1em, nosep}
+\setlist[enumerate]{leftmargin=1em, nosep}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% ---------- Custom Environments ----------
+\newtheoremstyle{defstyle}
+  {4pt} % space above
+  {4pt} % space below
+  {}    % body font
+  {}    % indent
+  {\bfseries} % theorem head font
+  {.}   % punctuation
+  {0.5em} % space after head
+  {}
+
+\theoremstyle{defstyle}
+\newtheorem{definition}{Definition}
+
+% ---------- Shortcuts ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\G}{\mathscr{G}}
+
+% ---------- Document ----------
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Analysis Definitions}}\\
+    \vspace{0.2em}
+    {\small Personal \quad • \quad Xuyi Ren \quad • \quad \today }
+\end{center}
+
+\vspace{0.5em}
+
+\begin{multicols}{2}
+
+\section*{Countability and cardinality}
+
+\begin{definition}[\textbf{Countable Set}]
+    A set $S$ is said to be countable if there exists a bijection between $S$ and $\N$
+\end{definition}
+
+\begin{definition}[\textbf{Cardinality}]
+The cardinality of a set $S$ is the number of elements in $S$. Two sets $S$ and $T$ has same cardinality iff there exists a bijection between $S$ and $T$
+\end{definition}
+
+\begin{definition}[\textbf{Finite and Infinite set}]
+    A set $S$ is called finite if there exists some natural number $n$ such that $S$ has same cardinality as the set $\{1,2,3,...,n\}$. A set is not finite is called infinite.
+\end{definition}
+
+
+\section*{Sequence}
+
+\begin{definition}[Sequence]
+    A sequence is a function $f$ from $\N$ to $\R$ s.t.
+    \begin{equation*}
+        n \xrightarrow{f} a_n
+    \end{equation*}
+    we denote the sequence as $\{a_n\}_{n=1}^\infty$
+\end{definition}
+
+\begin{definition}[Sequence Convergence]
+    A sequence $\{a_n\}_{n=1}^\infty$ is called converge to $a$ iff 
+    \begin{equation*}
+        \forall \varepsilon >0, \exists N(\varepsilon) \in \N \  s.t.\ \forall n \ge N(\varepsilon) \ \text{we have} |a_n-a|\le \varepsilon
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Diverge]
+    A sequence $\{a_n\}_{n=1}^\infty$ is called diverge to $+\infty$ if $\forall M,\exists N,s.t.,n\ge N$ implies $a_n \ge M$.
+    Similarly the diverge to $-\infty$ are defined.
+\end{definition}
+
+\section*{Integral}
+
+\end{multicols}
+
+\end{document}

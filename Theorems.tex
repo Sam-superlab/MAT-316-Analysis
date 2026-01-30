@@ -1,0 +1,224 @@
+\documentclass[10pt]{article}
+
+% ---------- Page Layout ----------
+\usepackage[
+  paper=a4paper,
+  left=0.8in,
+  right=2.2in, % space for notes
+  top=0.8in,
+  bottom=0.8in
+]{geometry}
+
+% ---------- Math Packages ----------
+\usepackage{amsmath, amssymb, amsthm}
+
+% ---------- Marginal Notes ----------
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\footnotesize}
+\setlength{\marginparwidth}{1.7in}
+
+% ---------- Formatting ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% ---------- Theorem Styles ----------
+\newtheoremstyle{examthm}
+  {6pt}   % space above
+  {6pt}   % space below
+  {}      % body font
+  {}      % indent
+  {\bfseries} % head font
+  {.}     % punctuation
+  {0.5em} % space after head
+  {}
+
+\theoremstyle{examthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+
+% ---------- Custom Note Command ----------
+\renewcommand{\thmnote}[1]{\marginnote{\emph{#1}}}
+\newcommand{\proofnote}[1]{\marginpar{\normalsize\emph{#1}}}
+
+\newcommand{\sep}{%
+  \vspace{0.6em}
+  \noindent\rule{\linewidth}{0.4pt}
+  \vspace{0.6em}
+}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+% ---------- Document ----------
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Theorem List}}\\
+    \vspace{0.3em}
+    {\small Analysis \quad • \quad Spring 2026 \quad • \quad Xuyi Ren}
+\end{center}
+
+\vspace{0.8em}
+
+% ==================================================
+
+\section*{Countability}
+
+\begin{proposition}[1.3.1]
+    Let $S$, $T$, and $U$ be sets.  
+If $S$ and $T$ have the same cardinality and $T$ and $U$ have the same cardinality,
+then $S$ and $U$ have the same cardinality.
+\proofnote{Use composition of bijections.}
+\end{proposition}
+\begin{proof}
+    Since $S$ and $T$ have the same cardinality, there exists a one-to-one function
+$f : S \to T$.  
+Since $T$ and $U$ have the same cardinality, there exists a one-to-one function
+$g : T \to U$.
+
+Then $g \circ f : S \to U$ is one-to-one.  
+Therefore, by definition, $S$ and $U$ have the same cardinality.
+\proofnote{Injective $\circ$ injective = injective}
+\end{proof}
+
+
+
+
+
+
+\sep
+
+
+\begin{proposition}[1.3.2]
+    If $S$ is infinite subset of a countable set $T$, then $S$ is countable
+\end{proposition}
+\begin{proof}
+    Since $T$ is countable, there exists a bijection between $\N$ and $T$. The element of $S$ is a subset of $T=\{f(n)|n\in \N\}$. 
+
+    \proofnote{Similar how we define the subsequence, we need a function map $k$ to $n_k$}
+
+    Let $n_1$ be the smallest integer in $\N$ such that $f(n_1)\in S$. Similarly, we define $n_k$ be the smallest integer bigger than $n_{k-1}$ such that $f(n_k)\in S$. It is easy to check that the function $g$ defined as
+    \begin{equation*}
+        k   \xrightarrow{g} f(n_k)
+    \end{equation*}
+    is a bijection between $\N$ and $S$. Therefore, $S$ is countable.
+\end{proof}
+
+
+
+\sep
+
+
+
+
+\begin{proposition}[1.3.4]
+    The cartesian product of countable set is countable.
+\end{proposition}
+\begin{proof}
+    Let $S$ and $T$ be countable arbitrary set. Since they are countable, we have two bijections $f,g$ from $\N$ to $S$ and $T$ respectivitly. 
+
+    Each element of $S\times T$ has form $(f(n),g(m))$ where $n,m\in \N$. Let $h:S\times T \to \N$  defined as:
+
+    \begin{equation*}
+        h((f(n),g(m)))=2^n3^m
+    \end{equation*}
+    Then by fundamental theorem of arithmetic, $h$ is a bijection between $S\times T$ and a infinite subset of $\N$. By proposition 1.3.2 such a subset is countable, by proposition 1.3.1, $S\times T$ is countable.
+\end{proof}
+
+
+
+
+
+
+
+
+\sep
+\begin{theorem}[1.3.5]
+    The set of rational number is countable
+\end{theorem}
+\begin{proof}
+    Every rational number can be written in the form $\frac{m}{n}$ where $m,n$ are integers and $n\neq 0$ and $\gcd(m,n)=1$. The function $f$ defined by 
+    \begin{equation*}
+        \frac{m}{n} \xrightarrow{f} (m,n)
+    \end{equation*}
+    is a bijection between positive rational number and $\N\times \N$. By proposition 1.3.4, we know that $\N\times\N$ is countable, by proposition 1.3.1, we know the set of positive rational number is countable. 
+    Since $\Q$ can be express as $\Q_-\cup\{0\}\cup\Q_+$, thus we shall define a bijection $g:\Q_+\to \Q_-\cup\{0\}$ s.t.
+    \begin{equation*}
+        g(q)=\begin{cases}
+            0 \quad \text{if}\ q=0\\
+            -q  \quad \text{if}\ q\in \Q_+
+        \end{cases}
+    \end{equation*}
+    thus, $\Q_-\cup\{0\}$ is countable, and thus, $\Q$ is countable.
+\end{proof}
+
+
+
+\sep
+\begin{theorem}[1.3.6]
+    The set of all real numbers between 0 and 1 is uncountable.
+\end{theorem}
+
+\begin{proof}
+We proceed by contradiction. Suppose that the open interval $(0,1)$ is countable.  
+Then there exists a one-to-one function
+\[
+f : \mathbb{N} \to (0,1)
+\]
+whose range is $(0,1)$.
+
+Every real number in $(0,1)$ admits a decimal expansion
+\[
+x = 0.x_1 x_2 x_3 \cdots
+\]
+where each digit $x_i \in \{0,1,\dots,9\}$.  
+We exclude decimal expansions that terminate in infinitely many $0$'s or $9$'s so that each real number has a unique representation.
+\proofnote{This avoids ambiguities such as $0.5000\ldots = 0.4999\ldots$}
+
+Write the decimal expansion of each $f(n)$ as
+\[
+\begin{aligned}
+f(1) &= 0.x^{(1)}_1 x^{(1)}_2 x^{(1)}_3 \cdots \\
+f(2) &= 0.x^{(2)}_1 x^{(2)}_2 x^{(2)}_3 \cdots \\
+f(3) &= 0.x^{(3)}_1 x^{(3)}_2 x^{(3)}_3 \cdots \\
+&\ \ \vdots \\
+f(n) &= 0.x^{(n)}_1 x^{(n)}_2 x^{(n)}_3 \cdots
+\end{aligned}
+\]
+
+We now construct a new decimal number
+\[
+y = 0.y_1 y_2 y_3 \cdots
+\]
+by choosing each digit $y_n \in \{2,3,\dots,8\}$ such that
+\[
+y_n \neq x^{(n)}_n .
+\]
+\proofnote{Choosing digits between $2$ and $8$ ensures the decimal does not end in $0$'s or $9$'s}
+
+By construction, $y \in (0,1)$. Moreover, $y$ differs from $f(n)$ in the $n$th decimal place for every $n$, hence
+\[
+y \neq f(n) \quad \text{for all } n \in \mathbb{N}.
+\]
+
+Thus $y$ is a real number in $(0,1)$ that is not in the range of $f$, contradicting the assumption that $f$ is surjective onto $(0,1)$.
+
+Therefore, $(0,1)$ is uncountable.
+\proofnote{In contrast, $\mathbb{Q} \cap (0,1)$ \emph{is} countable; the diagonal argument crucially uses infinite decimal expansions}
+\end{proof}
+
+
+
+
+
+\section*{Sequence}
+===============================================
+
+\section*{Integral}
+============================================
+
+\end{document}

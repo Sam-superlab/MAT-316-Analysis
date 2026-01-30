@@ -1,0 +1,116 @@
+\documentclass[12pt,letterpaper, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+
+% Number equations by question (nice for homework)
+\numberwithin{equation}{question}
+
+% Theorem-like environments, numbered per question
+\newtheorem{theorem}{Theorem}[question]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% Make the QED symbol a solid square (optional)
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\Q}[0]{\mathbb{Q}}
+\newcommand{\N}[0]{\mathbb{N}}
+\newcommand{\Z}[0]{\mathbb{Z}}
+
+\usepackage{amssymb}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\lhead{ }
+\rhead{ }
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\begin{document}
+
+\begingroup  
+    \centering
+    \LARGE Anslysis\\
+    \LARGE Problem Set 1\\[0.5em]
+    \large \today\\[0.5em]
+    \large Xuyi (Sam) Ren\par
+    % \large Roll Number\par
+    \large MAT-316\par
+\endgroup
+\rule{\textwidth}{0.4pt}
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Ans:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+\begin{questions}
+
+\question[] 
+
+\begin{solution}\end{solution}
+
+
+\question[] 
+\textbf{3.} Prove that:
+(a) The union of two finite sets is finite.
+(b) The union of a finite set and a countable set is countable.
+(c) The union of two countable sets is countable.
+\begin{solution}
+For (a) we can have two sets $S,T$ s.t. $S=(s_i),1\le i \le n$ and $T=(t_j),1\le j\le m$ after we union them we shall list those elements as $S\cup T=\{s_1,s_2,...,s_n,t_1,t_2,...,t_m\}$ if there are no common element between $S,T$ thus, $|S\cup T| \le m+n$ which is finite.
+
+For (b) since finite set is countable, and consider the countable set to be arbitrary, then there is bijection between $\N$ and such a set, we define a mapping $k\to n+k$ where $n$ is the number of elements of finite set.  in this case we have a bijection again between the union and the natural numbers
+
+
+\end{solution}
+
+
+
+\question[] 
+\textbf{7.} Find an explicit one-to-one correspondence between the interval $(-1, 7)$ and the real numbers $\mathbb{R}$.
+\begin{solution}
+
+\end{solution}
+
+
+\question[] 
+\textbf{4.} Suppose that $0 < a < b$. Prove that:
+(a) $a < \sqrt{ab} < b$.
+(b) $\sqrt{ab} \le \tfrac{1}{2}(a + b)$.
+
+
+\begin{solution}
+
+\end{solution}
+
+\question[] \textbf{10.} In order to disprove the implication that $P$ implies $Q$, one often provides an example in which $P$ is true but $Q$ is not. Such an example is called a \emph{counterexample} to the statement that $P$ implies $Q$. For each of the following incorrect statements, identify $P$, identify $Q$, and provide a counterexample.
+
+(a) If an integer is divisible by $2$, then it is divisible by $4$.
+
+(b) All quadratic polynomials have two real roots.
+
+(c) If a function $f$ from $\mathbb{R}$ to $\mathbb{R}$ is one-to-one, then the function $f^2$ is one-to-one.
+
+(d) If a function $f$ from $\mathbb{R}$ to $\mathbb{R}$ is one-to-one and bounded, then $f^{-1}$ is one-to-one and bounded.
+
+
+\begin{solution}
+\begin{enumerate}[(a)]
+    \item Let $P$ be the statement "an integer is divisible by $2$" and let $Q$ be the statement "it is divisible by $4$". A counterexample is given by the integer $2$.
+
+    \item Let $P$ be the set of all quadratic polynomials, and let $Q$ be the property "has two real roots". A counterexample is given by the polynomial $x^2 + 1$, since it has no real roots.
+
+    \item Let $P$ be the statement "a function $f:\mathbb{R} \to \mathbb{R}$ is one-to-one" and let $Q$ be the statement "the composition $f \circ f$ is one-to-one". A counterexample is given by $f(x) = x^3 - x$, since $f$ is not one-to-one but $f \circ f$ may fail to be one-to-one as well. (Alternatively, one may provide any specific counterexample as required by the original problem.)
+
+    \item Let $P$ be the statement "a function $f:\mathbb{R} \to \mathbb{R}$ is one-to-one and bounded" and let $Q$ be the statement "its inverse $f^{-1}$ is one-to-one and bounded". A counterexample is given by
+    \[
+        f(x) = \arctan(x).
+    \]
+    Then $f:\mathbb{R} \to \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ is one-to-one and bounded, but its inverse $f^{-1}(y) = \tan(y)$ is one-to-one on its domain $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ and unbounded.
+\end{enumerate}
+\end{solution}
+
+\section{Appendix}
+
+\end{questions}
+
+\end{document}
