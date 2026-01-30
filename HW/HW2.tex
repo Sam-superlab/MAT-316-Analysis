@@ -20,6 +20,7 @@
 \newcommand{\Q}[0]{\mathbb{Q}}
 \newcommand{\N}[0]{\mathbb{N}}
 \newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\R}[0]{\mathbb{R}}
 
 \usepackage{amssymb}
 \usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
@@ -137,7 +138,24 @@ However, $\{a_n\}$ does not converge to $0$ because $|a_n-0|\ge 1$ for all $n$, 
 
 
 
+\textbf{Quesiton 2:}
 
+Such a sequence that converge to a value without getting closer and closer to its value each term could be constant function from $\N$ to $\R$.\begin{equation*}
+    a_n=1^n
+\end{equation*}
+where this sequence indeed converge to 1. Suppose $|a_n-1|\le \varepsilon$
+\begin{align*}
+    |a_n-1| &\le \varepsilon \\
+    |1^n-1| &\le \varepsilon \\
+    0\le \varepsilon
+\end{align*}
+Thus, $|a_n-1|\le \varepsilon$ holds for all $n$, therefore we shall choose $N=1$. 
+
+Now we shall verify the "closer and closer" condition:
+\begin{align*}
+    |a_{n+1} - a| =  |1^{n+1}-1| =0 = |1^n-1|=|a_n-a|
+\end{align*}
+Thus, $|a_{n+1}-0|<|a_n-0| \quad \text{for every } n.$ does not hold.
 \end{solution}
 
 
