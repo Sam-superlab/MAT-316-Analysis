@@ -167,45 +167,69 @@ Prove that
 \[
 a_n b_n \to 0.
 \]
+\begin{solution}
+To verify the definition of convergence for $a_n b_n$, we need to show that $|a_n b_n|$ can be made arbitrarily small. Since $b_n$ is bounded, $|b_n|$ is trapped by some number $M$. Since $a_n \to 0$, we can make $|a_n|$ as small as we like. Specifically, if we make $|a_n|$ smaller than $\frac{\varepsilon}{M}$, then the product $|a_n| \cdot |b_n|$ will be smaller than $\frac{\varepsilon}{M} \cdot M = \varepsilon$.
+
+
+    Let $\varepsilon > 0$ be arbitrary. We seek an index $N$ such that for all $n \ge N$, $|a_n b_n - 0| < \varepsilon$.
+
+    First, since $\{b_n\}$ is a bounded sequence, there exists a number $M > 0$ such that:
+    \[ |b_n| \le M \quad \text{for all } n \in \mathbb{N}. \]
+    ( We choose $M > 0$ strictly to avoid division by zero later. If $b_n$ is the zero sequence, the result is trivial).
+
+    Next, since $a_n \to 0$, there exists an index $N \in \mathbb{N}$ such that for all $n \ge N$:
+    \[ |a_n - 0| < \frac{\varepsilon}{M}. \]
+    
+    Now, we check the limit condition for the product sequence using this same $N$. For all $n \ge N$, we have:
+    \begin{align*}
+        |a_n b_n - 0| &= |a_n| \cdot |b_n| \\
+        &\le |a_n| \cdot M \quad (\text{Since } |b_n| \le M) \\
+        &< \frac{\varepsilon}{M} \cdot M \quad (\text{Since } |a_n| < \frac{\varepsilon}{M}) \\
+        &= \varepsilon.
+    \end{align*}
+    
+    Thus, $|a_n b_n - 0| < \varepsilon$ for all $n \ge N$. Therefore, $a_n b_n \to 0$.
+\end{solution}
+
+
+\question[]
+Let $\{a_n\}$ and $\{b_n\}$ be sequences and suppose that $a_n \le b_n$ for all $n$ and that $a_n \to \infty$. Prove that $b_n \to \infty$.
+\begin{solution}
+    Let $M > 0$ be arbitrary.
+    We have $a_n \to \infty$. By definition, there exists an index $N \in \mathbb{N}$ such that for all $n \ge N$:
+    \[ a_n > M. \]
+    
+    We are also know that for all $n$:
+    \[ a_n \le b_n. \]
+    
+    Combining these two facts, for all $n \ge N$, we have:
+    \[ b_n \ge a_n > M \implies b_n > M. \]
+    
+    Since for every $M > 0$ we found an $N$ such that $b_n > M$ for all $n \ge N$, we conclude that $b_n \to \infty$.
+\end{solution}
+
+\question[]
+Let
+\[
+a_n = \sqrt{n+1} - \sqrt{n}.
+\]
+Prove that $a_n \to 0$.
+
 
 \begin{solution}
-We wish to prove that \begin{equation*}
-    \forall \varepsilon>0,\exists N\in \N s.t. \forall n\ge N, |a_nb_n-0|\le \varepsilon
-\end{equation*}. In order to choose such a $N$ we shall use some of those conditions we already know under this question, the $b_n$ is bounded sequence, namely
-\begin{equation*}
-    \exists M, s.t. \forall n\quad \text{we have } |b_n|\le M
-\end{equation*}
-which directly implies: $-M\le b_n\le M$ 
-and also $a_n\to 0$, which means: \begin{equation*}
-    \forall \varepsilon>0,\exists N_1\in \N s.t. \forall n\ge N_1, |a_n-0|\le \varepsilon
-\end{equation*}
-
-We can do some algebra on $|a_nb_n-0|\le \varepsilon$:
-\begin{align*}
-    |a_nb_n-0|&\le \varepsilon \\
-    |a_nb_n|&\le \varepsilon\\
-    |a_nb_n|&\le |a_n M|=|Ma_n-0|\le \varepsilon \\
+We wish to find a $N$ s.t. $\forall \varepsilon>0,\exists N\in \N,s.t.,\forall n\ge N$ we have $|a_n-0|\le \varepsilon$. 
+That is \begin{align*}
+    |a_n-0|&\le \varepsilon \\
+     |\sqrt{n+1} - \sqrt{n}-0|&\le \varepsilon \\
+     |\frac{(\sqrt{n+1} - \sqrt{n})(\sqrt{n+1} + \sqrt{n})}{\sqrt{n+1} + \sqrt{n}}-0|&\le \varepsilon \\
+     |\frac{(n+1)-n}{\sqrt{n+1} + \sqrt{n}}| &\le \varepsilon \\
+     |\frac{1}{\sqrt{n+1} + \sqrt{n}}| &\le  |\frac{1}{\sqrt{n}}|  \le \varepsilon  \quad (\text{Using the fact that } \frac{1}{\sqrt{n+1}+\sqrt{n}} \le \frac{1}{\sqrt{n}} )\\
+     \frac{1}{\sqrt{n}} &\le \varepsilon \\
+     n &\ge (\frac{1}{\varepsilon})^2
 \end{align*}
-Thus, in order to prove $  \forall \varepsilon>0,\exists N\in \N s.t. \forall n\ge N, |a_nb_n-0|\le \varepsilon$, we must show that under same condition $|Ma_n-0|\le \varepsilon $. Since $a_n\to a$ by Theorem 2.2.4, we know that $Ma_n\to Ma=M*0=0$. Thus, we shall chose $N=N_1$ and then \begin{equation*}
-    \forall \varepsilon>0,\exists N_1\in \N s.t. \forall n\ge N_1, |a_nb_n-0|\le \varepsilon
-\end{equation*}
-Holds.
 
+Thus, we shall choose $N= \lceil  \frac{1}{\varepsilon^2}  \rceil $ and this implies that $|a_n-0|\le \varepsilon$
 
-
-
-
-\end{solution}
-
-
-\question[] 
-
-\begin{solution}
-\end{solution}
-
-\question[] .
-
-\begin{solution}
 \end{solution}
 
 
