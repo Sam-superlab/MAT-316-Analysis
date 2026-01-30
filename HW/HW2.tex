@@ -161,8 +161,40 @@ Thus, $|a_{n+1}-0|<|a_n-0| \quad \text{for every } n.$ does not hold.
 
 
 
-\question[] 
+\question[]
+Let $\{b_n\}$ be a bounded sequence and suppose that $a_n \to 0$.
+Prove that
+\[
+a_n b_n \to 0.
+\]
+
 \begin{solution}
+We wish to prove that \begin{equation*}
+    \forall \varepsilon>0,\exists N\in \N s.t. \forall n\ge N, |a_nb_n-0|\le \varepsilon
+\end{equation*}. In order to choose such a $N$ we shall use some of those conditions we already know under this question, the $b_n$ is bounded sequence, namely
+\begin{equation*}
+    \exists M, s.t. \forall n\quad \text{we have } |b_n|\le M
+\end{equation*}
+which directly implies: $-M\le b_n\le M$ 
+and also $a_n\to 0$, which means: \begin{equation*}
+    \forall \varepsilon>0,\exists N_1\in \N s.t. \forall n\ge N_1, |a_n-0|\le \varepsilon
+\end{equation*}
+
+We can do some algebra on $|a_nb_n-0|\le \varepsilon$:
+\begin{align*}
+    |a_nb_n-0|&\le \varepsilon \\
+    |a_nb_n|&\le \varepsilon\\
+    |a_nb_n|&\le |a_n M|=|Ma_n-0|\le \varepsilon \\
+\end{align*}
+Thus, in order to prove $  \forall \varepsilon>0,\exists N\in \N s.t. \forall n\ge N, |a_nb_n-0|\le \varepsilon$, we must show that under same condition $|Ma_n-0|\le \varepsilon $. Since $a_n\to a$ by Theorem 2.2.4, we know that $Ma_n\to Ma=M*0=0$. Thus, we shall chose $N=N_1$ and then \begin{equation*}
+    \forall \varepsilon>0,\exists N_1\in \N s.t. \forall n\ge N_1, |a_nb_n-0|\le \varepsilon
+\end{equation*}
+Holds.
+
+
+
+
+
 \end{solution}
 
 
